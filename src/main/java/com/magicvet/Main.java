@@ -21,31 +21,29 @@ public class Main {
         System.out.println("Please provide client details:");
         System.out.print("email: ");
         String email = SCANNER.nextLine();
+        Client client = null;
 
         if(isEmailValid(email)) {
-            String validEmail = email;
-
             System.out.println("FirstName: ");
             String firstName = SCANNER.nextLine();
 
-            Client client = null;
             if (isFirstNameValid(firstName)) {
-                String validFirstName = firstName;
-
                 System.out.println("LastName: ");
-                String LastName = SCANNER.nextLine();
+                String lastName = SCANNER.nextLine();
 
-                if (isLastNameValid(firstName)) {
-                    String validLastName = LastName;
-                    client = buildClient(validEmail, validFirstName, validLastName);
+                if (isLastNameValid(lastName)) {
+                    client = buildClient(email, firstName, lastName);
+
                 } else {
                     System.out.println("Provided firstName is invalid.");
                 }
+
             } else {
                 System.out.println("Provided firstName is invalid.");
             }
 
             System.out.println("New client: " + client.firstName + " " + client.lastName + " (" + client.email + ")");
+
         } else {
             System.out.println("Provided email is invalid.");
         }
