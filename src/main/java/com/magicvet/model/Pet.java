@@ -8,6 +8,13 @@ public class Pet {
     private String name;
     private String ownerName;
 
+    @Override
+    public String toString(){
+        return  type + ", sex = " + sex
+                + ", age = " + age
+                + ", name = " + name;
+    }
+
     public String getType() {
         return type;
     }

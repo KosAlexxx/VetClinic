@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
-    private static String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-    private static String FIRST_NAME_PATTERN = "^[A-zА-я]{1,}[- ]?[A-zА-я]{2,}$";
-    private static String LAST_NAME_PATTERN = "^[A-zА-я]{1,}[- ]?[A-zА-я]{2,}$";
+    private final static String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    private final static String FIRST_NAME_PATTERN = "^[A-zА-я]{1,}[- ]?[A-zА-я]{2,}$";
+    private final static String LAST_NAME_PATTERN = "^[A-zА-я]{1,}[- ]?[A-zА-я]{2,}$";
 
     public static boolean isEmailValid(String email) {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
