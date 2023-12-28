@@ -51,7 +51,7 @@ public class PetService {
     pet.setAge(Main.SCANNER.nextLine());
         System.out.println("Name:");
         pet.setName(Main.SCANNER.nextLine());
-        System.out.println("Sex: (male / famale)");
+        System.out.println("Sex: (male / female)");
         pet.setSex(Main.SCANNER.nextLine());
 
         if(type.equals(DOG_TYPE)){
