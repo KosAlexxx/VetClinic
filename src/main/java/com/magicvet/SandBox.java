@@ -1,8 +1,10 @@
 package main.java.com.magicvet;
 
-import main.java.com.magicvet.comporator.PetAgeComparator;
-import main.java.com.magicvet.comporator.PetNameComparator;
+import main.java.com.magicvet.comparator.ClientLastNameComparator;
+import main.java.com.magicvet.comparator.PetAgeComparator;
+import main.java.com.magicvet.comparator.PetNameComparator;
 import main.java.com.magicvet.model.Cat;
+import main.java.com.magicvet.model.Client;
 import main.java.com.magicvet.model.Dog;
 import java.util.Arrays;
 
@@ -35,17 +37,30 @@ public class SandBox {
 
         Cat[] catAge = {cat1, cat2, cat3};
 
-       // Arrays.sort(catAge, new PetAgeComparator());
+        Arrays.sort(catAge, new PetAgeComparator());
         Arrays.sort(catAge, new PetNameComparator());
 
         printArray(catAge);
 
+        Client client1 = new Client();
+        Client client2 = new Client();
+        Client client3 = new Client();
+        client1.setLastName("Sedyh");
+        client2.setLastName("Uriev");
+        client3.setLastName("Alex");
+        Client [] clients = {client1, client2, client3};
+
+        Arrays.sort(clients, new ClientLastNameComparator());
+
+        printArray(clients);
 
     }
-
     private static void printArray(Object[] obj) {
         for(Object object : obj){
             System.out.println(object);
         }
+
+
+
     }
 }

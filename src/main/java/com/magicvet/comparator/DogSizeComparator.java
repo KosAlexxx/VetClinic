@@ -1,4 +1,4 @@
-package main.java.com.magicvet.comporator;
+package main.java.com.magicvet.comparator;
 
 import main.java.com.magicvet.model.Dog;
 
