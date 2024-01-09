@@ -1,8 +1,15 @@
 package main.java.com.magicvet.model;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Client {
+import static java.util.Comparator.comparing;
+
+public class Client implements Comparable<Client> {
+
+        private static final Comparator<Client> COMPARATOR = comparing((Client client) -> client.lastName)
+            .thenComparing(client -> client.firstName)
+            .thenComparing(client -> client.email);
          private  String firstName;
          private String lastName;
          private String email;
@@ -66,4 +73,9 @@ public class Client {
         public void setPet(Pet pet) {
             this.pet = pet;
         }
+
+    @Override
+    public int compareTo(Client thatClient) {
+        return COMPARATOR.compare(this, thatClient);
     }
+}

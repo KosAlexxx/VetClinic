@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public abstract class Pet {
 
+    private HealthState healthState;
     private String type;
     private String sex;
     private String age;
@@ -23,6 +24,14 @@ public abstract class Pet {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void setHealthState(HealthState healthState){
+        this.healthState = healthState;
+    }
+
+    public HealthState getHealthState(){
+        return healthState;
     }
 
     public String getSex() {
@@ -73,5 +82,22 @@ public abstract class Pet {
     public int hashCode() {
         return Objects.hash(type, sex, age, name, ownerName);
     }
+
+    public enum HealthState{
+        Good_Health(1),
+        Moderate_Severity(2),
+        Severe_Degree(3),
+        UNKNOWN(0);
+
+        private int value;
+
+        HealthState(int value){
+            this.value = value;
+        }
+
+        public int getHealState(){
+            return value;
+        }
+}
 
 }
