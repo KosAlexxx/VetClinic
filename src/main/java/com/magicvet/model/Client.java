@@ -1,5 +1,8 @@
 package main.java.com.magicvet.model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Comparator;
 import java.util.Objects;
 
@@ -14,6 +17,8 @@ public class Client implements Comparable<Client> {
          private String lastName;
          private String email;
          private Pet pet;
+         private  static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+         private final LocalDateTime registrationDate = LocalDateTime.now();
 
          @Override
          public String toString(){
@@ -21,6 +26,7 @@ public class Client implements Comparable<Client> {
                      + "\n\tFirst name = " + firstName
                      + ", Last name = " + lastName
                      + ", Email = " + email
+                     + ", Registration date: " + registrationDate.format(FORMATTER)
                      + ",\n\tPet = " + pet
                      + "\n}";
          }
