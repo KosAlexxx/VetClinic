@@ -3,7 +3,9 @@ package main.java.com.magicvet.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
 import static java.util.Comparator.comparing;
@@ -16,7 +18,7 @@ public class Client implements Comparable<Client> {
          private  String firstName;
          private String lastName;
          private String email;
-         private Pet pet;
+         private List<Pet> pets = new ArrayList<>();
          private  static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
          private final LocalDateTime registrationDate = LocalDateTime.now();
 
@@ -27,7 +29,7 @@ public class Client implements Comparable<Client> {
                      + ", Last name = " + lastName
                      + ", Email = " + email
                      + ", Registration date: " + registrationDate.format(FORMATTER)
-                     + ",\n\tPet = " + pet
+                     + ",\n\tPets = " + pets
                      + "\n}";
          }
 
@@ -39,13 +41,13 @@ public class Client implements Comparable<Client> {
         return Objects.equals(firstName, client.firstName)
                 && Objects.equals(lastName, client.lastName)
                 && Objects.equals(email, client.email)
-                && Objects.equals(pet, client.pet);
+                && Objects.equals(pets, client.pets);
     }
 
     @Override
     public int hashCode() {
 
-             return Objects.hash(firstName, lastName, email, pet);
+             return Objects.hash(firstName, lastName, email, pets);
     }
 
     public void setFirstName(String firstName) {
@@ -72,12 +74,16 @@ public class Client implements Comparable<Client> {
             return email;
         }
 
-        public Pet getPet() {
-            return pet;
+        public List <Pet> getPet() {
+            return pets;
         }
 
-        public void setPet(Pet pet) {
-            this.pet = pet;
+        public void setPet(List <Pet> pet) {
+            this.pets = pets;
+        }
+
+        public void addPet(Pet pet){
+             pets.add(pet);
         }
 
     @Override
