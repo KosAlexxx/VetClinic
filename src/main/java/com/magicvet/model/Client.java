@@ -7,11 +7,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-
 import static java.util.Comparator.comparing;
 
 public class Client implements Comparable<Client> {
-
         private static final Comparator<Client> COMPARATOR = comparing((Client client) -> client.lastName)
             .thenComparing(client -> client.firstName)
             .thenComparing(client -> client.email);
@@ -21,6 +19,7 @@ public class Client implements Comparable<Client> {
          private List<Pet> pets = new ArrayList<>();
          private  static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
          private final LocalDateTime registrationDate = LocalDateTime.now();
+         private Location location;
 
          @Override
          public String toString(){
@@ -29,6 +28,7 @@ public class Client implements Comparable<Client> {
                      + ", Last name = " + lastName
                      + ", Email = " + email
                      + ", Registration date: " + registrationDate.format(FORMATTER)
+                     + ", Location - " + location
                      + ",\n\tPets = " + pets
                      + "\n}";
          }
@@ -74,11 +74,11 @@ public class Client implements Comparable<Client> {
             return email;
         }
 
-        public List <Pet> getPet() {
+        public List <Pet> getPets() {
             return pets;
         }
 
-        public void setPet(List <Pet> pet) {
+        public void setPets(List <Pet> pet) {
             this.pets = pets;
         }
 
@@ -89,5 +89,17 @@ public class Client implements Comparable<Client> {
     @Override
     public int compareTo(Client thatClient) {
         return COMPARATOR.compare(this, thatClient);
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public enum Location {
+           Kharkov, Dnepr, Odessa;
     }
 }
