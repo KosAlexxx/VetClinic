@@ -100,6 +100,6 @@ public class Client implements Comparable<Client> {
     }
 
     public enum Location {
-           Kharkov, Dnepr, Odessa;
+           Kharkov, Dnepr, Odessa, Unknown;
     }
 }
