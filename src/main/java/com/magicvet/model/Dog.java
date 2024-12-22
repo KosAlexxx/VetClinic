@@ -2,14 +2,15 @@ package main.java.com.magicvet.model;
 
 import java.util.Objects;
 
-public class Dog extends Pet{
+public class Dog extends Pet {
 
     private Size size;
 
-    public  Dog (){}
+    public Dog() {
+    }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Pet {"
                 + getType() + ", sex = " + getSex()
                 + ", age = " + getAge()
@@ -19,7 +20,7 @@ public class Dog extends Pet{
                 + "}";
     }
 
-    public Dog (Size size){
+    public Dog(Size size) {
         this.size = size;
     }
 
@@ -59,13 +60,13 @@ public class Dog extends Pet{
 
         private final int value;
 
-        Size(int value){
+        Size(int value) {
             this.value = value;
         }
 
-        public static Size fromString(String value){
-            for(Size size : values()){
-                if(size.toString().equals(value)){
+        public static Size fromString(String value) {
+            for (Size size : values()) {
+                if (size.toString().equals(value)) {
                     return size;
                 }
             }
