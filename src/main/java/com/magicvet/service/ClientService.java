@@ -4,9 +4,11 @@ import main.java.com.magicvet.Main;
 import main.java.com.magicvet.model.Client;
 import main.java.com.magicvet.utils.Validator;
 
+import java.util.Optional;
+
 public class ClientService {
 
-    public Client registerNewClient() {
+    public Optional <Client> registerNewClient() {
         Client client = null;
         System.out.println("Please provide client details:");
         System.out.print("email: ");
@@ -37,7 +39,7 @@ public class ClientService {
             System.out.println("Provided email is invalid.");
         }
 
-        return client;
+        return Optional.ofNullable(client);
     }
 
     private static Client buildClient(String email, String firstName, String lastName) {
@@ -45,6 +47,19 @@ public class ClientService {
         client.setEmail(email);
         client.setFirstName(firstName);
         client.setLastName(lastName);
+
+        System.out.println("Location: ");
+        Client.Location location;
+        String locationInput = Main.SCANNER.nextLine();
+
+        try {
+            location = Client.Location.valueOf(locationInput);
+        } catch (IllegalArgumentException e){
+            location = Client.Location.Unknown;
+            System.out.println("Unable to parse value ' "
+                    + locationInput + " '. using default value: " + Client.Location.Unknown);
+    }
+        client.setLocation(location);
 
         return client;
     }
