@@ -94,6 +94,7 @@ public class EntityRegister {
                 System.out.println("Pet has been added.");
             }
         }
+
     }
 
     private boolean verifyRepeating(String message){
@@ -108,4 +109,5 @@ public class EntityRegister {
             return verifyRepeating(message);
         }
     }
+
 }
